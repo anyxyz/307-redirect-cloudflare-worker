@@ -6,9 +6,4 @@ on:
       - main
 jobs:
   lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm ci
-      - run: npm run lint
+    uses: ./.github/workflows/reusables/lint.yml

@@ -1,13 +1,22 @@
-name: Checks
+name: Lint
 
-on: workflow_call
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+  workflow_call:
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/nodejs@v2
+      - name: 'checkout repository'
+        uses: actions/checkout@v4
+      - name: 'setup node'
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run lint
+          node-version: 18
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint

@@ -1,0 +1,21 @@
+{
+	"display": "@anyxyz/lambda-typescript",
+	"compilerOptions": {
+	  "module": "CommonJS",
+	  "lib": ["ES2022", "DOM"],
+	  "target": "ES2022",
+	  "noImplicitAny": true,
+	  "preserveConstEnums": true,
+	  "strict": true,
+	  "strictPropertyInitialization": false,
+	  "sourceMap": true,
+	  "moduleResolution": "node",
+	  "resolveJsonModule": true,
+	  "experimentalDecorators": true,
+	  "emitDecoratorMetadata": true,
+	  "skipLibCheck": true,
+	  "noEmit": true,
+	  "types": ["@types/node"]
+	}
+  }
+  

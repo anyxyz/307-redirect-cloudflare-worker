@@ -1,0 +1,27 @@
+{
+	"name": "@anyxyz/307-redirect-cloudflare-worker",
+	"version": "1.0.0",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/anyxyz/307-redirect-cloudflare-worker.git"
+	},
+	"scripts": {
+		"lint": "eslint . --ext .ts",
+		"lint:fix": "eslint . --ext .ts --fix",
+		"deploy": "wrangler deploy",
+		"start": "wrangler dev"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20230419.0",
+		"@types/node": "^20.6.5",
+		"@typescript-eslint/eslint-plugin": "^6.7.2",
+		"eslint": "^8.50.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-prettier": "^5.0.0",
+		"prettier": "^3.0.3",
+		"typescript": "^5.2.2",
+		"wrangler": "^3.0.0"
+	}
+}

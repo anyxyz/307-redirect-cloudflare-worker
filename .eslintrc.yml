@@ -1,0 +1,124 @@
+root: true
+env:
+  es2022: true
+  commonjs: true
+  node: true
+plugins:
+  - '@typescript-eslint'
+  - 'prettier'
+parser: '@typescript-eslint/parser'
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/eslint-recommended'
+  - 'plugin:import/recommended'
+  - 'plugin:import/typescript'
+  - 'prettier'
+overrides:
+  - files: '*.js'
+    rules:
+      # Reason: https://github.com/Shopify/eslint-plugin-shopify/issues/159
+      '@typescript-eslint/no-var-requires': off
+  - files: '*.d.ts'
+    rules:
+      'no-use-before-define': off
+  - files: '*.ts'
+    parserOptions:
+      project: true
+    rules:
+      '@typescript-eslint/consistent-type-imports': error
+      '@typescript-eslint/promise-function-async': error
+      '@typescript-eslint/no-require-imports': error
+      '@typescript-eslint/explicit-function-return-type': warn
+    settings:
+      'import/resolver':
+        typescript:
+          alwaysTryTypes: true
+  - files: ['*.js', '*.ts']
+    parserOptions:
+      project: true
+    rules:
+      '@typescript-eslint/no-for-in-array': error
+      '@typescript-eslint/prefer-optional-chain': error
+      '@typescript-eslint/no-floating-promises': error
+
+rules:
+  prettier/prettier: error
+  import/namespace: off
+  prefer-spread: off
+  curly: error
+  eqeqeq: error
+  strict:
+    - error
+    - global
+  spaced-comment: error
+  complexity:
+    - error
+    - max: 12
+  max-depth:
+    - error
+    - max: 3
+  dot-notation: error
+  no-alert: error
+  no-empty-function:
+    - error
+    - allow:
+        - constructors
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-implicit-coercion: error
+  no-useless-return: error
+  consistent-this: error
+  func-names:
+    - error
+    - as-needed
+  func-name-matching: error
+  func-style:
+    - error
+    - declaration
+  id-length:
+    - error
+    - min: 3
+      exceptions:
+        - i
+        - '$'
+  max-statements-per-line: error
+  no-lonely-if: error
+  no-multi-assign: error
+  no-unneeded-ternary: error
+  one-var:
+    - error
+    - never
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+      newlines-between: never
+  import/no-duplicates: error
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/naming-convention':
+    - error
+    - selector: interface
+      format:
+        - PascalCase
+    - selector: typeAlias
+      format:
+        - PascalCase
+  '@typescript-eslint/no-use-before-define':
+    - error
+    - functions: false
+      classes: true
+      variables: true
+      enums: true
+      typedefs: true
+      ignoreTypeReferences: true
+  '@typescript-eslint/member-ordering':
+    - error
+    - default:
+        - signature
+        - static-field
+        - field
+        - constructor
+        - static-method
+        - method
